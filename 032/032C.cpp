@@ -11,6 +11,7 @@ int main(){
   for(int i = 0; i < N ; i++){
     lli n;
     cin >> n;
+    // 一つでも 0 があったら
     if(n == 0){
       cout << N << endl;
       return 0;
@@ -21,6 +22,7 @@ int main(){
   int ans = 0;
   lli mulS = 1;
   int start = 0, end = 0;
+  // しゃくとり法
   while(end < N){
     mulS *= s[end];
  
