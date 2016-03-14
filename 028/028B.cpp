@@ -1,27 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template < typename T > std::string to_string( const T& n )
+{
+  std::ostringstream stm;
+  stm << n;
+  return stm.str();
+}
+
 int main(){
-  string S;
-  cin >> S;
+  string s;
+  cin >> s;
 
-  int ans[6];
-  for(int i = 0 ; i < 6 ; i++) ans[i] = 0;
+  string AF = "ABCDEF";
   
-  for(int i = 0; i < S.size() ; i++){
-    char ch = S[i];
-    if(ch == 'A') ans[0]++;
-    else if(ch == 'B') ans[1]++;
-    else if(ch == 'C') ans[2]++;
-    else if(ch == 'D') ans[3]++;
-    else if(ch == 'E') ans[4]++;
-    else ans[5]++;
+  int c[6];
+  // count(s.begin(), s.end(), 'A')
+  // s の中の 'A' の数え上げ
+  for(int i = 0 ; i < 6 ; i++){
+    c[i] = count(s.begin(), s.end(), AF[i]);
   }
 
-  for(int i = 0 ; i < 6 ; i++){
-    if(i == 5) cout << ans[i] << endl;
-    else cout << ans[i] << " ";
+  string result = to_string(c[0]);
+  for(int i = 1; i < 6; i++){
+    result += " " + to_string(c[i]);
   }
+
+  cout << result << endl;
   
   return 0;
 }
